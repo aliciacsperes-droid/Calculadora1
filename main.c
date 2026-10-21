@@ -37,16 +37,16 @@ int main() {
 
         if (opcao == 1) {
             resultado = num1 + num2;
-            printf("Resultado: %.2f\n", resultado);
+            printf("Resultado: %g + %g =%g\n", num1, num2, resultado);
         } else if (opcao == 2) {
             resultado = num1 - num2;
-            printf("Resultado: %.2f\n", resultado);
+            printf("Resultado: %g - %g = %g\n", num1, num2, resultado);
         } else if (opcao == 3) {
             resultado = num1 * num2;
-            printf("Resultado: %.2f\n", resultado);
+            printf("Resultado: %g * %g =%g\n", num1, num2, resultado);
         } else if (opcao == 4) {
             if (num2 == 0) {
-                printf("Erro: divisao por zero nao e permitida!\n");
+                printf("Resultado: %g / %g = %g\n", num1, num2, resultado);
             } else {
                 resultado = num1 / num2;
                 printf("Resultado: %.2f\n", resultado);
