@@ -1,10 +1,13 @@
 #include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+#include <stdlib.h>
 
 int main() {
     int opcao;
     double num1, num2, resultado;
     char resposta;
-    int leu;
+    char entrada[100];
 
     while (1) {
         printf("=== Calculadora ===\n");
@@ -15,13 +18,17 @@ int main() {
         printf("5. Sair\n");
         printf("Escolha uma opcao: ");
         
-        leu = scanf("%d", &opcao);
-        if (leu != 1) {
-            // Limpa o que o usuario digitou errado (letra)
-            while (getchar() != '\n');
+        scanf("%99s", entrada);
+        
+        // Verifica se é inteiro de 1 a 5 e NADA mais
+        char *end;
+        long val = strtol(entrada, &end, 10);
+        // Se sobrou alguma letra/ponto no final, é invalido
+        if (*end != '\0' || end == entrada) {
             printf("Opcao invalida!\n");
             continue;
         }
+        opcao = (int)val;
 
         if (opcao == 5) {
             printf("Obrigado por usar a calculadora! Ate a proxima.\n");
@@ -54,22 +61,17 @@ int main() {
             }
         }
 
-        // LOOP DA PERGUNTA s/n - Agora com validação
         while (1) {
             printf("Deseja realizar outra operacao? (s/n): ");
             scanf(" %c", &resposta);
-
-            if (resposta == 's' || resposta == 'S') {
-                break; // volta pro menu
-            } else if (resposta == 'n' || resposta == 'N') {
+            if (resposta == 's' || resposta == 'S') break;
+            else if (resposta == 'n' || resposta == 'N') {
                 printf("Obrigado por usar a calculadora! Ate a proxima.\n");
                 return 0;
             } else {
                 printf("Opcao invalida! Digite s ou n.\n");
-                // continua no loop da pergunta
             }
         }
     }
-
     return 0;
 }
