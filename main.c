@@ -45,11 +45,13 @@ int main() {
             resultado = num1 * num2;
             printf("Resultado: %g * %g =%g\n", num1, num2, resultado);
         } else if (opcao == 4) {
-            if (num2 == 0) {
+            if (num2 == 0)
+            { printf("Erro: divisao por zero nao e permitida!\n") ;
+            }             else{
+
+         resultado = num1 / num2;
                 printf("Resultado: %g / %g = %g\n", num1, num2, resultado);
-            } else {
-                resultado = num1 / num2;
-                printf("Resultado: %.2f\n", resultado);
+            }               
             }
         }
 
