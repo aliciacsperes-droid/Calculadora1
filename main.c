@@ -1,5 +1,7 @@
 #include <stdio.h>
+#include <string.h>
 int main() {
+    char entrada[100]
     int opcao;
     double num1, num2, resultado;
     char continuar;
@@ -17,7 +19,12 @@ int main() {
         printf("4. Divisão\n");
         printf("5. Sair\n");
         printf("Opção: ");
-        retorno = scanf("%d", &opcao);
+       scanf("%99s", entrada);
+        if (strlen(entrada) != 1 || entrada[0] < '1' || entrada[0] > '4') {
+            printf("Opcao invalida!\n");
+            continue;
+        }
+        opcao = entrada[0] - '0';
     
         if (retorno != 1) {
             printf("Opção inválida! Digite um número entre 1 e 5.\n");
